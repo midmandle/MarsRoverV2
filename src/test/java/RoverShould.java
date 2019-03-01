@@ -18,6 +18,17 @@ public class RoverShould {
             "'RRR', '0,0,W'",
             "'RRRR', '0,0,N'",
             "'LLLL', '0,0,N'",
+            "'M', '0,1,N'",
+            "'MM', '0,2,N'",
+            "'RM', '1,0,E'",
+            "'RMM', '2,0,E'",
+            "'MRM', '1,1,E'",
+            "'LRM', '0,1,N'",
+            "'LM', '9,0,W'",
+            "'LLM', '0,9,S'",
+            "'LLMMRM', '9,8,W'",
+            "'MMMMMMMMMM', '0,0,N'",
+            "'RMMMMMMMMMM', '0,0,E'",
     })
     void execute_commands_and_return_a_final_location(String commands, String expectedFinalLocation) {
         Rover rover = new Rover();
