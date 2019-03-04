@@ -18,10 +18,12 @@ public class Rover {
 
     private Queue<LocationOperation> generateOperations(String commands) {
         Queue<LocationOperation> generatedOperations = new LinkedBlockingQueue<>();
+
         for (char command : commands.toCharArray()) {
             LocationOperation operation = getOperationFor(command);
             generatedOperations.add(operation);
         }
+
         return generatedOperations;
     }
 
@@ -43,10 +45,12 @@ public class Rover {
 
     private Location executeOperations(Queue<LocationOperation> operations) {
         Location currentLocation = this.location;
+
         for (LocationOperation operation :
                 operations) {
             currentLocation = operation.execute(currentLocation);
         }
+
         return currentLocation;
     }
 

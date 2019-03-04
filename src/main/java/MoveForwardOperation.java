@@ -1,56 +1,54 @@
 public class MoveForwardOperation implements LocationOperation {
-    private Location location;
 
     public MoveForwardOperation() {
     }
 
     @Override
     public Location execute(Location location) {
-        this.location = location;
-        return this.moveForward();
+        return this.moveForward(location);
     }
 
-    Location moveForward() {
+    Location moveForward(Location location) {
         switch (location.direction) {
             case NORTH: {
-                return moveNorth();
+                return moveNorth(location);
             }
             case EAST: {
-                return moveEast();
+                return moveEast(location);
             }
             case SOUTH: {
-                return moveSouth();
+                return moveSouth(location);
             }
             case WEST: {
-                return moveWest();
+                return moveWest(location);
             }
             default:
                 throw new UnsupportedOperationException();
         }
     }
 
-    private Location moveNorth() {
+    private Location moveNorth(Location location) {
         int newYCoordinate = location.yCoordinate + 1;
         if (isWrappingTop(newYCoordinate))
             newYCoordinate = teleportToBottom();
         return new Location(location.xCoordinate, newYCoordinate, location.direction);
     }
 
-    private Location moveEast() {
+    private Location moveEast(Location location) {
         int newXCoordinate = location.xCoordinate + 1;
         if (isWrappingRight(newXCoordinate))
             newXCoordinate = teleportToLeft();
         return new Location(newXCoordinate, location.yCoordinate, location.direction);
     }
 
-    private Location moveSouth() {
+    private Location moveSouth(Location location) {
         int newYCoordinate = location.yCoordinate - 1;
         if (isWrappingBottom(newYCoordinate))
             newYCoordinate = teleportToTop();
         return new Location(location.xCoordinate, newYCoordinate, location.direction);
     }
 
-    private Location moveWest() {
+    private Location moveWest(Location location) {
         int newXCoordinate = location.xCoordinate - 1;
         if (isWrappingLeft(newXCoordinate))
             newXCoordinate = teleportToRight();
