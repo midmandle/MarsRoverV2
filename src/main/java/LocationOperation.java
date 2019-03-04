@@ -1,3 +1,3 @@
 public interface LocationOperation {
-    Location execute();
+    Location execute(Location location);
 }

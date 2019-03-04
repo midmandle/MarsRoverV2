@@ -1,12 +1,12 @@
 public class RotateLeftOperation implements LocationOperation{
     private Location location;
 
-    public RotateLeftOperation(Location location) {
-        this.location = location;
+    public RotateLeftOperation() {
     }
 
     @Override
-    public Location execute() {
+    public Location execute(Location location) {
+        this.location = location;
         return this.rotateLeft();
     }
 

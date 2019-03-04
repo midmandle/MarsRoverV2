@@ -1,12 +1,12 @@
 public class MoveForwardOperation implements LocationOperation {
     private Location location;
 
-    public MoveForwardOperation(Location location) {
-        this.location = location;
+    public MoveForwardOperation() {
     }
 
     @Override
-    public Location execute() {
+    public Location execute(Location location) {
+        this.location = location;
         return this.moveForward();
     }
 
